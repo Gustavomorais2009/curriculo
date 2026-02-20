@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jornada 360° - Agronegócio | Gustavo Ribas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9f3e6 100%);
+            color: #1e2a1e;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0, 40, 0, 0.2);
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+            border: 1px solid #c0d6b3;
+        }
+
+        /* Cabeçalho com tema do agro */
+        .header-agro {
+            background: linear-gradient(145deg, #2b5e2b 0%, #1e4a1e 100%);
+            color: white;
+            padding: 30px 40px 20px 40px;
+            position: relative;
+            border-bottom: 5px solid #d4af37;
+        }
+
+        .header-agro::before {
+            content: "🌱";
+            font-size: 120px;
+            opacity: 0.1;
+            position: absolute;
+            bottom: -10px;
+            right: 20px;
+            transform: rotate(15deg);
+        }
+
+        .header-agro h1 {
+            font-size: 2.8em;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px #1a3a1a;
+        }
+
+        .header-agro .subtitulo {
+            font-size: 1.3em;
+            font-weight: 300;
+            border-left: 4px solid #d4af37;
+            padding-left: 20px;
+            margin: 15px 0 10px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 0 100px 100px 0;
+            padding: 12px 25px;
+        }
+
+        .nome-destaque {
+            background: #d4af37;
+            color: #1e4a1e;
+            padding: 8px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: 700;
+            font-size: 1.3em;
+            margin-top: 15px;
+            box-shadow: 0 4px 0 #8b691f;
+        }
+
+        .agro-badge {
+            background: #f5b342;
+            color: #1a3a1a;
+            padding: 5px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            display: inline-block;
+            margin-left: 15px;
+            font-size: 0.9em;
+        }
+
+        /* Cards e seções */
+        .intro-box {
+            background: #e2f0da;
+            padding: 25px 40px;
+            border-bottom: 3px dashed #6a8e6a;
+            font-size: 1.2em;
+        }
+
+        .intro-box strong {
+            color: #1e6b1e;
+        }
+
+        .secao {
+            padding: 30px 40px;
+            border-bottom: 1px solid #d0e0c8;
+        }
+
+        .secao:last-child {
+            border-bottom: none;
+        }
+
+        .secao h2 {
+            color: #1e4a1e;
+            font-size: 2em;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .secao h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: #d4af37;
+            border-radius: 2px;
+        }
+
+        .modulos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .modulo-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 40, 0, 0.1);
+            border-left: 5px solid #2b5e2b;
+            transition: transform 0.3s ease;
+        }
+
+        .modulo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 60, 0, 0.15);
+        }
+
+        .modulo-card h3 {
+            color: #d4af37;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+        }
+
+        .modulo-card ul {
+            list-style-type: none;
+        }
+
+        .modulo-card li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .modulo-card li::before {
+            content: "🌾";
+            position: absolute;
+            left: 0;
+            color: #2b5e2b;
+            font-size: 1.1em;
+        }
+
+        /* Tabela cronograma */
+        .tabela-cronograma {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 1em;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .tabela-cronograma thead tr {
+            background-color: #1e4a1e;
+            color: white;
+            font-weight: 600;
+        }
+
+        .tabela-cronograma th, .tabela-cronograma td {
+            padding: 15px 20px;
+            text-align: left;
+        }
+
+        .tabela-cronograma tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .tabela-cronograma tbody tr:nth-of-type(even) {
+            background-color: #f4f9f0;
+        }
+
+        .tabela-cronograma tbody tr:last-of-type {
+            border-bottom: 2px solid #1e4a1e;
+        }
+
+        /* Listas em colunas */
+        .lista-colunas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .lista-colunas li {
+            background: white;
+            padding: 12px 18px;
+            border-radius: 40px;
+            list-style: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border: 1px solid #c8ddc0;
+            font-weight: 500;
+        }
+
+        /* Foco no agro */
+        .agro-destaque {
+            background: #fbf7e9;
+            border-radius: 25px;
+            padding: 20px 30px;
+            margin: 25px 0 15px 0;
+            border: 2px solid #d4af37;
+            position: relative;
+        }
+
+        .agro-destaque h3 {
+            color: #1e4a1e;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .tag-agro {
+            background: #1e4a1e;
+            color: #f5e6b0;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9em;
+            display: inline-block;
+            margin-right: 10px;
+            margin-bottom: 8px;
+        }
+
+        .rodape {
+            background: #1a2e1a;
+            color: #e0eec0;
+            padding: 25px 40px;
+            text-align: center;
+            font-size: 1.1em;
+            border-top: 4px solid #d4af37;
+        }
+
+        .assinatura {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 2em;
+            color: #d4af37;
+            margin: 10px 0;
+        }
+
+        .botao-voltar {
+            display: inline-block;
+            background: #d4af37;
+            color: #1e4a1e;
+            padding: 10px 25px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 15px;
+            border: 2px solid #b38f2e;
+            transition: all 0.3s;
+        }
+
+        .botao-voltar:hover {
+            background: #f5c542;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 700px) {
+            .header-agro h1 {
+                font-size: 1.8em;
+            }
+            .secao {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Cabeçalho com nome e agro -->
+    <div class="header-agro">
+        <h1>🌿 Jornada 360°</h1>
+        <div class="subtitulo">Navegando no Mundo do Trabalho com foco no <strong>AGRONEGÓCIO</strong></div>
+        <div>
+            <span class="nome-destaque">Gustavo Edineudes Morais Ribas</span>
+            <span class="agro-badge">🌱 Futuro profissional do Agro</span>
+        </div>
+        <p style="margin-top: 20px; font-size: 1.1em; max-width: 80%;"><i>"Minha jornada profissional será dedicada a transformar o campo com inovação, sustentabilidade e paixão pelo agronegócio brasileiro."</i></p>
+    </div>
+
+    <!-- Introdução personalizada -->
+    <div class="intro-box">
+        <strong>✨ Projeto criado por Gustavo Edineudes Morais Ribas</strong> — apaixonado por agronegócio e desenvolvimento profissional. Este programa integra autoconhecimento, habilidades técnicas e comportamentais para preparar você para o mercado, com ênfase especial no setor agro.
+    </div>
+
+    <!-- Seção Público/Justificativa -->
+    <div class="secao">
+        <h2>🌎 Visão Geral</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+            <div style="flex: 1; min-width: 200px;">
+                <p><span style="background: #1e4a1e; color: white; padding: 5px 15px; border-radius: 30px;">👥 Público-alvo</span></p>
+                <p>Jovens a partir de 16 anos, estudantes do ensino médio e futuros profissionais do agronegócio que buscam o primeiro emprego ou capacitação.</p>
+            </div>
+            <div style="flex: 2;">
+                <p><span style="background: #1e4a1e; color: white; padding: 5px 15px; border-radius: 30px;">💡 Justificativa</span></p>
+                <p>O agronegócio é um dos setores que mais cresce no Brasil, exigindo profissionais preparados. Unimos o desenvolvimento pessoal às especificidades do campo: desde tecnologia no agro até boas práticas de gestão rural.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Objetivos Gerais e Específicos com toque agro -->
+    <div class="secao">
+        <h2>🎯 Objetivos</h2>
+        <div style="background: #ecf5e8; padding: 20px; border-radius: 20px;">
+            <p style="font-size: 1.3em; font-weight: 600;">📍 Geral:</p>
+            <p>Preparar para o mercado de trabalho com foco no agronegócio, desenvolvendo autoconhecimento, habilidades comportamentais e técnicas para processos seletivos no setor agro.</p>
+            <p style="font-size: 1.2em; font-weight: 600; margin-top: 20px;">📍 Específicos (com ênfase no Agro):</p>
+            <ul class="lista-colunas">
+                <li>🌱 Autoconhecimento voltado às carreiras do agro</li>
+                <li>🚜 Tendências do agronegócio 4.0</li>
+                <li>🤝 Soft skills para o campo</li>
+                <li>📝 Currículo e entrevistas no setor agro</li>
+                <li>📊 Direitos trabalhistas rurais</li>
+                <li>🌾 Networking com profissionais do agro</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Módulos com atividades -->
+    <div class="secao">
+        <h2>📚 Módulos do Projeto</h2>
+        <div class="modulos-grid">
+            <div class="modulo-card">
+                <h3>Módulo 1</h3>
+                <p style="font-weight: 600; color: #1e4a1e;">O Mapa da Mina</p>
+                <ul>
+                    <li>Dinâmica "Quem sou eu no agro?"</li>
+                    <li>Análise FOFA pessoal (forças para o campo)</li>
+                    <li>Plano de Desenvolvimento Individual com meta no agro</li>
+                </ul>
+            </div>
+            <div class="modulo-card">
+                <h3>Módulo 2</h3>
+                <p style="font-weight: 600; color: #1e4a1e;">A Caixa de Ferramentas</p>
+                <ul>
+                    <li>Comunicação assertiva no ambiente rural</li>
+                    <li>Dinâmica "A Torre de Papel" (trabalho em equipe)</li>
+                    <li>Inteligência emocional para lidar com pressão no campo</li>
+                </ul>
+            </div>
+            <div class="modulo-card">
+                <h3>Módulo 3</h3>
+                <p style="font-weight: 600; color: #1e4a1e;">Mão na Massa</p>
+                <ul>
+                    <li>Currículo com foco em experiências agro</li>
+                    <li>Workshop LinkedIn para o setor</li>
+                    <li>Simulação de entrevista: "Entrevista no Agro"</li>
+                </ul>
+            </div>
+            <div class="modulo-card">
+                <h3>Módulo 4</h3>
+                <p style="font-weight: 600; color: #1e4a1e;">Mundo Corporativo</p>
+                <ul>
+                    <li>Palestra com profissional do agronegócio</li>
+                    <li>Networking no setor agro</li>
+                    <li>Feira de Profissões: apresentação de carreiras agro</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cronograma e recursos -->
+    <div class="secao">
+        <h2>📅 Cronograma e Recursos</h2>
+        <table class="tabela-cronograma">
+            <thead>
+                <tr>
+                    <th>Etapa</th>
+                    <th>Atividade</th>
+                    <th>Período</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Semana 1</td><td>Módulo 1: O Mapa da Mina (Agro)</td><td>2 horas</td></tr>
+                <tr><td>Semana 2</td><td>Módulo 2: A Caixa de Ferramentas</td><td>2 horas</td></tr>
+                <tr><td>Semana 3</td><td>Módulo 3: Colocando a Mão na Massa</td><td>2 horas</td></tr>
+                <tr><td>Semana 4</td><td>Módulo 4: Mundo Corporativo + Encerramento</td><td>2 horas</td></tr>
+            </tbody>
+        </table>
+        <div style="background: #d9e8d2; padding: 15px; border-radius: 15px;">
+            <strong>🛠️ Recursos necessários:</strong> Materiais impressos, acesso à internet, projetor, parceria com profissionais do agronegócio para palestras, e muita disposição!
+        </div>
+    </div>
+
+    <!-- Destaque para o interesse de Gustavo no Agro -->
+    <div class="agro-destaque">
+        <h3>🚀 O futuro de Gustavo no Agronegócio</h3>
+        <p><span class="tag-agro">Inovação</span> <span class="tag-agro">Sustentabilidade</span> <span class="tag-agro">Tecnologia rural</span> <span class="tag-agro">Gestão</span> <span class="tag-agro">Agro 4.0</span></p>
+        <p style="font-size: 1.2em;">Gustavo Edineudes Morais Ribas pretende atuar no setor agro integrando inovação e sustentabilidade. Seu projeto aplicará todos os módulos com estudos de caso reais do campo, visitas técnicas virtuais a fazendas modelo e mentorias com profissionais do ramo.</p>
+    </div>
+
+    <!-- Resultados esperados e avaliação -->
+    <div class="secao">
+        <h2>✅ Resultados Esperados</h2>
+        <ul style="columns: 2; list-style-type: '🌿 '; padding-left: 30px;">
+            <li>Clareza sobre objetivos profissionais no agro</li>
+            <li>Currículos direcionados ao setor</li>
+            <li>Confiança em entrevistas</li>
+            <li>Rede de contatos no agronegócio</li>
+            <li>Compreensão da cultura organizacional rural</li>
+            <li>Plano de carreira estruturado</li>
+        </ul>
+
+        <h2 style="margin-top: 40px;">📝 Avaliação</h2>
+        <div class="lista-colunas" style="grid-template-columns: repeat(3,1fr);">
+            <li>Questionário diagnóstico</li>
+            <li>Feedback contínuo</li>
+            <li>Autoavaliação</li>
+        </div>
+    </div>
+
+    <!-- Rodapé com nome completo e assinatura -->
+    <div class="rodape">
+        <p>🌾 Projeto "Jornada 360°: Navegando no Mundo do Trabalho"</p>
+        <div class="assinatura">Gustavo Edineudes Morais Ribas</div>
+        <p>Foco profissional: <strong>Agronegócio</strong> | Transformando o campo com conhecimento</p>
+        <p style="margin-top: 15px; font-size: 0.9em;">© 2025 - Todos os direitos reservados a Gustavo E. M. Ribas</p>
+        <a href="#" class="botao-voltar" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">↑ Voltar ao topo</a>
+    </div>
+</div>
+
+<script>
+    // pequeno script para deixar interativo - mostra mensagem no console
+    console.log("Projeto personalizado para Gustavo Edineudes Morais Ribas - Agro é o nosso futuro!");
+</script>
+
+</body>
+</html>
