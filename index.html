@@ -1,100 +1,106 @@
 <!DOCTYPE html>
-<!-- Declaração do tipo de documento (HTML5) -->
 <html lang="pt-BR">
-<!-- Tag raiz do documento, com atributo de idioma (português do Brasil) -->
-
 <head>
-  <!-- Cabeçalho do documento (metadados e links) -->
-  <meta charset="UTF-8">
-  <!-- Define a codificação de caracteres como UTF-8 (suporta acentos e caracteres especiais) -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Configura a viewport para responsividade em dispositivos móveis -->
-  <title>Currículo Acadêmico - Rafael Assis Santos</title>
-  <!-- Título que aparece na aba do navegador -->
-  <link rel="stylesheet" href="style.css">
-  <!-- Link para o arquivo CSS externo (estilos) -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gustavo Morais - Futuro Policial</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <!-- Corpo do documento (conteúdo visível) -->
+    <div class="container">
+        <!-- HEADER COM NOME E TÍTULO -->
+        <header>
+            <div class="badge"></div>
+            <h1>GUSTAVO MORAIS</h1>
+            <p class="subtitle">FUTURO POLICIAL | DISCIPLINA E HONRA</p>
+        </header>
 
+        <!-- SEÇÃO SOBRE -->
+        <section class="sobre">
+            <h2>SOBRE MIM</h2>
+            <div class="divider"></div>
+            <p>
+                Jovem determinado, com forte senso de justiça e vontade de servir e proteger a sociedade. 
+                Praticante de futsal, esporte que desenvolveu meu espírito de equipe, disciplina e resistência. 
+                Busco minha primeira oportunidade para iniciar a carreira na área policial.
+            </p>
+        </section>
 
-  <header>
-  <div class="header-content">
-    <img src="ras.png"
- alt="Foto de perfil" class="profile-img">
-    <div class="header-text">
-       <!-- Cabeçalho da página -->
-      <h1>Rafael Assis Santos</h1>
-        <!-- Título principal (nome) -->
-      <p>Professor de: Programação👨‍💻 História⏳ Pedagogia🦉 Técnico de Informática💻 Teologia 📖</p>
-       <!-- Subtítulo (cargo) -->
+        <!-- INFORMAÇÕES PESSOAIS -->
+        <section class="dados">
+            <h2>DADOS PESSOAIS</h2>
+            <div class="divider"></div>
+            <ul>
+                <li><strong>Nome completo:</strong> Gustavo Eduneudes Morais Ribas</li>
+                <li><strong>Idade:</strong> [SUA IDADE] anos</li>
+                <li><strong>Cidade:</strong> [SUA CIDADE] - [SEU ESTADO]</li>
+                <li><strong>Telefone:</strong> (XX) XXXXX-XXXX</li>
+                <li><strong>Email:</strong> gustavo.email@exemplo.com</li>
+                <li><strong>CNH:</strong> [Categoria B / Em processo / Ainda não]</li>
+            </ul>
+        </section>
+
+        <!-- FORMAÇÃO -->
+        <section class="formacao">
+            <h2>FORMAÇÃO ACADÊMICA</h2>
+            <div class="divider"></div>
+            <div class="item">
+                <h3>Ensino Médio</h3>
+                <p>[NOME DA ESCOLA] - [CIDADE]</p>
+                <p class="periodo">[ANO INÍCIO] - [ANO FIM ou "Cursando"]</p>
+            </div>
+        </section>
+
+        <!-- CURSOS E QUALIFICAÇÕES -->
+        <section class="cursos">
+            <h2>CURSOS E QUALIFICAÇÕES</h2>
+            <div class="divider"></div>
+            <ul>
+                <li>Informática Básica - [NOME DO CURSO/INSTITUIÇÃO]</li>
+                <li>Curso de Atendimento ao Público - [OPCIONAL]</li>
+                <li>Inglês Básico - [OPCIONAL]</li>
+                <li>Noções de Direitos Humanos - [OPCIONAL]</li>
+            </ul>
+        </section>
+
+        <!-- HABILIDADES -->
+        <section class="habilidades">
+            <h2>HABILIDADES</h2>
+            <div class="divider"></div>
+            <div class="skills">
+                <span class="skill-tag">Trabalho em equipe</span>
+                <span class="skill-tag">Disciplina</span>
+                <span class="skill-tag">Comunicação</span>
+                <span class="skill-tag">Resistência física</span>
+                <span class="skill-tag">Futsal</span>
+                <span class="skill-tag">Raciocínio rápido</span>
+            </div>
+        </section>
+
+        <!-- EXPERIÊNCIA (se tiver) -->
+        <section class="experiencia">
+            <h2>EXPERIÊNCIA</h2>
+            <div class="divider"></div>
+            <p class="primeira-oportunidade">Em busca da primeira oportunidade profissional</p>
+        </section>
+
+        <!-- INFORMAÇÕES ADICIONAIS -->
+        <section class="adicional">
+            <h2>INFORMAÇÕES ADICIONAIS</h2>
+            <div class="divider"></div>
+            <ul>
+                <li>Atleta de futsal - [NOME DO TIME] (se tiver) / Praticante desde [ANO]</li>
+                <li>Disponibilidade para viajar e mudar de horário</li>
+                <li>Interesse em concursos públicos e carreiras policiais</li>
+            </ul>
+        </section>
+
+        <!-- FRASE DE EFEITO -->
+        <footer>
+            <p>"Servir e proteger: um chamado, uma missão, um propósito."</p>
+        </footer>
     </div>
-  </div>
-   
-  <button id="modo-escuro">Alternar Modo Escuro</button>
-     <!-- Botão para alternar tema escuro/claro (funcionalidade no JavaScript) -->
-  <button id="imprimir">Imprimir currículo</button>
-    <!-- Botão para imprimir o currículo -->
-</header>
 
-  <section class="perfil">
-    <!-- Seção de perfil -->
-    <h2>Perfil</h2>
-    <!-- Título da seção -->
-    <p>Professor que ama o que faz</p>
-    <!-- Texto descritivo -->
-  </section>
-
-  <section class="habilidades">
-    <!-- Seção de habilidades -->
-    <h2>Habilidades</h2>
-    <ul>
-      <!-- Lista não ordenada -->
-      <li>Programação Front-end e Back-end</li>
-      <!-- Item da lista -->
-      <li>Informática</li>
-      <li>Banco de Dados</li>
-      <li>Git e GitHub</li>
-      <li>Metodologias Ativas de Ensino</li>
-    </ul>
-  </section>
-
-  <section class="formacao">
-    <!-- Seção de formação acadêmica -->
-    <h2>Formação Acadêmica</h2>
-    <p>História</p>
-    <p>Pedagogia</p>
-     <p>Análise e Desenvolvimento de Sistemas</p>
-    <!-- Parágrafo com informação -->
-    <p>Pós-graduações</p>
-    <p>Metodologias do Ensino da Matemática, Educação do Campo, Educação Especial, Teologia</p>
-  </section>
-
-  <section class="experiencia">
-    <!-- Seção de experiência profissional -->
-    <h2>Experiência Profissional</h2>
-    <ul>
-      <li>Professor de Programação - Desde 2022</li>
-      <li>Técnico de Informática - Desde 2018</li>
-      <li> Professor de História - Desde 20214</li>
-    </ul>
-  </section>
-
-  <section class="contato">
-    <!-- Seção de contato -->
-    <h2>Contato</h2>
-    <p>Email: rafael.assis.santos@escola.pr.gov.br</p>
-    <p>GitHub: github.com/professor-rafael</p>
-  </section>
-
-  <footer>
-    <!-- Rodapé da página -->
-    <p>&copy; 2025 Todos os direitos reservados à RasinformaticA</p>
-    <!-- Texto de copyright e observação. &copy; → © (copyright) -->
-  </footer>
-
-  <script src="script.js"></script>
-  <!-- Link para o arquivo JavaScript externo (funcionalidades) -->
+    <script src="script.js"></script>
 </body>
 </html>
